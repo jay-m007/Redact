@@ -1,0 +1,27 @@
+name: Redact missed something
+description: A kind of personal detail that was not found, or was found wrongly
+labels: [detector]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Never paste a real ID number, card number or phone number here.** Replace the digits with made-up ones of the same shape.
+  - type: input
+    id: kind
+    attributes:
+      label: What kind of detail?
+      placeholder: "Driving licence, PNR number, passport, ..."
+    validations: { required: true }
+  - type: textarea
+    id: shape
+    attributes:
+      label: What does it look like?
+      description: Made-up example in the same format, and the words printed next to it.
+      placeholder: "Label: 'Ref No', value like AB12 3456 7890"
+    validations: { required: true }
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What went wrong?
+      options: ["It was not found", "It was found on the wrong words", "The black box missed part of it"]
+    validations: { required: true }

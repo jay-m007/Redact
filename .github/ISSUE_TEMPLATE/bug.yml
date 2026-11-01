@@ -1,0 +1,15 @@
+name: Something is broken
+description: The page, saving or the picture reader did not work
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, and what you expected. Please do not attach a picture with real personal details.
+    validations: { required: true }
+  - type: input
+    id: device
+    attributes:
+      label: Phone or computer and browser
+      placeholder: "Pixel 7, Chrome 130"

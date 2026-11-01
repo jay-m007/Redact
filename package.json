@@ -1,0 +1,17 @@
+{
+  "name": "redact",
+  "version": "1.0.0",
+  "description": "Hide personal details in a screenshot or photo before you share it. Finds Aadhaar, PAN, phone, UPI and more on your device. Nothing is uploaded.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "build": "node tools/build.js",
+    "serve": "node tools/build.js && node tools/serve.js"
+  },
+  "devDependencies": {
+    "@tesseract.js-data/eng": "1.0.0",
+    "tesseract.js": "5.1.1",
+    "tesseract.js-core": "5.1.1"
+  },
+  "license": "MIT"
+}

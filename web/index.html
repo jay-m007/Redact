@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; manifest-src 'self'; worker-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'none'">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0b0b0f">
+<meta name="referrer" content="no-referrer">
+<title>Redact</title>
+<meta name="description" content="Hide Aadhaar, PAN, phone numbers, UPI IDs and other personal details in a screenshot or photo before you share it. It all happens on your device.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<script src="theme-init.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar">
+  <div class="brand"><span class="logo" aria-hidden="true"><i></i><i></i><i></i></span><span>Redact</span></div>
+  <button id="modeBtn" class="btn small ghost" type="button">Auto</button>
+</header>
+
+<main id="main" class="wrap">
+  <section id="start">
+    <div class="hero">
+      <h1>Share the screenshot.<br>Not the <span class="barred">secrets</span>.</h1>
+      <p class="lead">Redact finds Aadhaar, PAN, phone numbers, UPI IDs and more in a picture, covers them with solid black, and removes the hidden location and phone details. It all happens on your device. Nothing is uploaded.</p>
+    </div>
+    <div id="drop" class="drop" tabindex="0" role="button" aria-label="Choose a picture, or drop or paste one here">
+      <p class="drop-big">Drop, paste or choose a picture</p>
+      <p class="drop-small">Screenshots and photos of documents. JPEG, PNG or WebP.</p>
+      <div class="row center">
+        <button id="pickBtn" class="btn primary" type="button">Choose a picture</button>
+        <button id="sampleBtn" class="btn" type="button">Try a sample</button>
+      </div>
+      <input id="file" type="file" accept="image/*" hidden>
+    </div>
+    <section class="about">
+      <h2>What it hides</h2>
+      <p>Aadhaar (checked with its own checksum), PAN, phone and mobile numbers, email addresses, UPI IDs, card numbers, bank account numbers, IFSC codes, dates of birth, names after a label like <em>Name:</em>, OTPs and CVVs, vehicle numbers, passports, voter IDs and driving licences. You can also draw a box over anything else: a face, an address, a signature.</p>
+      <p><strong>Always look at the result before you share it.</strong> Reading text from a picture is never perfect, and Redact cannot recognise a name or address that has no label next to it.</p>
+    </section>
+  </section>
+
+  <section id="editor" hidden>
+    <div class="toolbar">
+      <button id="findBtn" class="btn primary" type="button">Find personal details</button>
+      <button id="undoBtn" class="btn" type="button" disabled>Undo</button>
+      <button id="clearBtn" class="btn ghost" type="button" disabled>Remove all boxes</button>
+      <button id="newBtn" class="btn ghost" type="button">Start over</button>
+    </div>
+    <div id="progress" class="progress" hidden>
+      <div class="bar-track"><div id="progressFill" class="bar-fill"></div></div>
+      <p id="progressText" class="muted small" role="status"></p>
+    </div>
+    <p id="status" class="status" role="status"></p>
+    <p class="hint">Drag on the picture to draw a black box. Tap a box to remove it.</p>
+    <div class="stage"><canvas id="cv" aria-label="Your picture with black boxes over the private parts"></canvas></div>
+
+    <section class="card">
+      <h2>Boxes <span id="boxCount" class="muted"></span></h2>
+      <ul id="boxList" class="boxlist"></ul>
+      <details class="kinds"><summary>What to look for</summary><div id="kinds" class="kind-grid"></div></details>
+    </section>
+
+    <section id="metaCard" class="card" hidden>
+      <h2>Hidden details in this photo</h2>
+      <ul id="metaList" class="metalist"></ul>
+      <p class="muted small">All of this is removed when you save.</p>
+    </section>
+
+    <section class="card save">
+      <h2>Save your safe copy</h2>
+      <div class="row">
+        <button id="savePng" class="btn primary" type="button">Save as PNG</button>
+        <button id="saveJpg" class="btn" type="button">Save as JPEG</button>
+        <button id="shareBtn" class="btn" type="button" hidden>Share</button>
+      </div>
+      <p class="muted small">The saved picture is rebuilt from scratch with the boxes burned in. It has no layers and no location or phone details, so the covered parts cannot be brought back.</p>
+    </section>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Open source and free. <a href="https://github.com/jay-m007/Redact" rel="noopener noreferrer">See the code</a> · <a href="https://github.com/jay-m007/Redact/issues/new/choose" rel="noopener noreferrer">Report something it missed</a></p>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

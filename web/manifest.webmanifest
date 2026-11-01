@@ -1,0 +1,15 @@
+{
+  "name": "Redact",
+  "short_name": "Redact",
+  "description": "Hide personal details in a screenshot or photo before you share it. Private and offline.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f3ef",
+  "theme_color": "#0b0b0f",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
